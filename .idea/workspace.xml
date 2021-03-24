@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="876a82fa-cec3-47c7-9f93-2ea64d3b334a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/file_controller/file_controller.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/enum/enum.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/connections/connections.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dao/connections/connections_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/route.go" beforeDir="false" afterPath="$PROJECT_DIR$/route/route.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +21,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="/usr/local/go" />
+  <component name="GOROOT" url="file:///usr/local/Cellar/go/1.15.7_1/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -39,13 +36,20 @@
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Test.TestNewMysqlConnection in Demo_/dao/connections">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="Demo_" />
       <working_directory value="$PROJECT_DIR$" />
@@ -65,8 +69,20 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestNewMysqlConnection in Demo_/dao/connections" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Demo_" />
+      <working_directory value="$PROJECT_DIR$/dao/connections" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="Demo_/dao/connections" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestNewMysqlConnection\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestNewMysqlConnection in Demo_/dao/connections" />
         <item itemvalue="Go Build.go build Demo_" />
       </list>
     </recent_temporary>
@@ -75,45 +91,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609988612772">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1609988612772" />
-    <state x="438" y="259" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610005044473">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="438" y="259" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1610005044473" />
-    <state width="2518" height="422" key="GridCell.Tab.0.bottom" timestamp="1610505889197">
-      <screen x="1440" y="-369" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="422" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-369.2560.1440@1440.-369.2560.1440" timestamp="1610505889197" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609988998019" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.23.1440.798@0.23.1440.798" timestamp="1610088402709" />
-    <state width="2518" height="422" key="GridCell.Tab.0.center" timestamp="1610505889182">
-      <screen x="1440" y="-369" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="422" key="GridCell.Tab.0.center/0.0.1440.900/1440.-369.2560.1440@1440.-369.2560.1440" timestamp="1610505889182" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1609988998016" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.23.1440.798@0.23.1440.798" timestamp="1610088402707" />
-    <state width="2518" height="422" key="GridCell.Tab.0.left" timestamp="1610505889178">
-      <screen x="1440" y="-369" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="422" key="GridCell.Tab.0.left/0.0.1440.900/1440.-369.2560.1440@1440.-369.2560.1440" timestamp="1610505889178" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1609988998013" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.23.1440.798@0.23.1440.798" timestamp="1610088402698" />
-    <state width="2518" height="422" key="GridCell.Tab.0.right" timestamp="1610505889193">
-      <screen x="1440" y="-369" width="2560" height="1440" />
-    </state>
-    <state width="2518" height="422" key="GridCell.Tab.0.right/0.0.1440.900/1440.-369.2560.1440@1440.-369.2560.1440" timestamp="1610505889193" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1609988998017" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.23.1440.798@0.23.1440.798" timestamp="1610088402708" />
-    <state x="2385" y="-38" width="670" height="676" key="search.everywhere.popup" timestamp="1610455596023">
-      <screen x="1440" y="-369" width="2560" height="1440" />
-    </state>
-    <state x="2385" y="-38" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-369.2560.1440@1440.-369.2560.1440" timestamp="1610455596023" />
   </component>
 </project>
