@@ -14,6 +14,8 @@ func main() {
 		//env = flag.String("env", "dev", "请输入运行环境:\n  fat:测试环境\n uat:预上线环境\n product:正式环境 \n")
 	)
 
+	//mysqlConnec := connections.NewMysqlConnection()
+
 	//flag.Parse()
 
 	fmt.Println("start time:", time.Now().Format(string(enum.FormatTime)))
