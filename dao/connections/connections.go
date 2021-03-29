@@ -24,6 +24,7 @@ func NewMysqlConnection() *gorm.DB {
 			TablePrefix:   "fw_", // 表名前缀，`User` 的表名应该是 `t_users`
 			SingularTable: true,  // 使用单数表名，启用该选项，此时，`User` 的表名应该是 `t_user`
 		},
+		CreateBatchSize: 100, // 自己本地docker玩玩,就别弄太多数据了。
 		Logger: logger.Default.LogMode(logger.Info),
 	})
 
