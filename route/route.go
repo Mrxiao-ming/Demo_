@@ -6,7 +6,6 @@ import (
 )
 
 func InitRoute(g *gin.Engine) {
-
 	//测试接口
 	g.GET("/ping", func(c *gin.Context) {
 		c.String(200, "Hello World")

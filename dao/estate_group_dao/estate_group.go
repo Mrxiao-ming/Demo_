@@ -4,13 +4,22 @@ import (
 	"Demo_/model/enum"
 	"Demo_/model/estate_group_model"
 	"errors"
+	"github.com/AlekSi/pointer"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
+	"time"
 )
 
 //GORM 允许用户定义的钩子有 BeforeSave, BeforeCreate, AfterSave, AfterCreate 创建记录时将调用这些钩子方法，请参考 Hooks 中关于生命周期的详细信息
-func (i *impl) BeforeCreate(tx *gorm.DB, eg estate_group_model.EstateGroup) (err error) {
-	if eg.Name == "" {
+func (i *impl) BeforeCreate(tx *gorm.DB) (err error) {
+	if i.eg.Name == pointer.ToString("") {
 		return errors.New("项目名称不可为空")
+	}
+	if i.eg.CreateTime == nil {
+		i.eg.CreateTime = pointer.ToTime(time.Now())
+	}
+	if i.eg.UpdateTime == nil {
+		i.eg.UpdateTime = pointer.ToTime(time.Now())
 	}
 	return nil
 }
@@ -21,7 +30,7 @@ func (i *impl) AfterFind(tx *gorm.DB) (err error) {
 }
 
 // 增
-func (i *impl) CreateEstateGroup(eg estate_group_model.EstateGroup) error {
+func (i *impl) CreateEstateGroup(isSkipHooks bool) error {
 
 	/*
 		// 创建记录并更新给出的字段。
@@ -30,19 +39,36 @@ func (i *impl) CreateEstateGroup(eg estate_group_model.EstateGroup) error {
 		// 创建记录并更新未给出的字段。
 			db.Omit("Name", "Age", "CreatedAt").Create(&user)
 	*/
-
-	create := i.db.Model(&estate_group_model.EstateGroup{}).Create(&eg)
+	db := i.db
+	if isSkipHooks {
+		db.Session(&gorm.Session{SkipHooks: true})
+	}
+	create := db.Model(&estate_group_model.EstateGroup{}).Create(&i.eg)
+	// create.RowsAffected 返回插入记录的条数
 	return create.Error
 }
 
+// 增 ｜ 更新
+func (i *impl) CreateOrUpdateEstateGroup() error {
+	err := i.db.Clauses(clause.OnConflict{
+		UpdateAll: true,
+	}).Create(&i.eg).Error
+	return err
+}
+
 // 批量插入
-func (i *impl) BatchCreateEstateGroup(eg []estate_group_model.EstateGroup) error {
+func (i *impl) BatchCreateEstateGroup(eg []estate_group_model.EstateGroup, isSkipHooks bool) error {
 	/*
 		// 指定插入数量为 100
 			var users = []User{{name: "jinzhu_1"}, ...., {Name: "jinzhu_10000"}}
 			db.CreateInBatches(users, 100)
 	*/
-	create := i.db.Model(&estate_group_model.EstateGroup{}).Create(&eg)
+	db := i.db
+	if isSkipHooks {
+		db.Session(&gorm.Session{SkipHooks: true})
+	}
+	//如果是个slice 则会自动调用 CreateInBatches
+	create := db.Model(&estate_group_model.EstateGroup{}).Create(&eg)
 	return create.Error
 }
 
@@ -166,7 +192,7 @@ func (i *impl) GetEstateGroupBatches(name string, batchNum int) ([]estate_group_
 	var res = make([]estate_group_model.EstateGroup, 0)
 	query := i.db.Model(&estate_group_model.EstateGroup{}).Where("name = ?", name).FindInBatches(&res, batchNum, func(tx *gorm.DB, batch int) error {
 		for _, r := range res {
-			if r.Stage == 0 {
+			if *r.Stage == 0 {
 
 			}
 			// 批量处理找到的记录

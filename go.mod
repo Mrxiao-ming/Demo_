@@ -3,8 +3,8 @@ module Demo_
 go 1.15
 
 require (
-	github.com/gin-gonic/gin v1.6.3
-	github.com/jinzhu/now v1.1.2 // indirect
-	gorm.io/driver/mysql v1.0.5
-	gorm.io/gorm v1.21.9
+	github.com/AlekSi/pointer v1.2.0
+	github.com/gin-gonic/gin v1.7.7
+	gorm.io/driver/mysql v1.2.2
+	gorm.io/gorm v1.22.4
 )
