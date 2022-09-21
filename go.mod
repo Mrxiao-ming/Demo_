@@ -14,6 +14,7 @@ require (
 	github.com/hnlq715/struct2interface v0.1.2 // indirect
 	github.com/imdario/mergo v0.3.13 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/panjf2000/ants/v2 v2.5.0 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/urfave/cli v1.22.9 // indirect
 	golang.org/x/sys v0.0.0-20220829200755-d48e67d00261 // indirect
